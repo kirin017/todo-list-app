@@ -3,17 +3,17 @@ from datetime import datetime
 
 
 class TodoBase(BaseModel):
-    title: string 
-    description: string | None = None
-    complete: bool = False
-    id: int
+    title: str
+    description: str| None = None
+    completed: bool = False
+    
 
-class Todo(TodoBase):
+class TodoCreate(TodoBase):
     pass
 
 
-class TodoCreate(TodoBase):
+class Todo(TodoBase):
+    id: int
     create_at: datetime
-
     class Config:
         from_attributes = True

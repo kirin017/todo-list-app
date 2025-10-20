@@ -9,4 +9,7 @@ class User(Base):
     email = Column(String, unique=True, index=True, nullable=False)
     username = Column(String, unique=True, index=True, nullable=False)
     hashed_password = Column(String, nullable=False)
+
+    categories = relationship("Category", back_populates="owner", cascade="all, delete-orphan")
     todos = relationship("Todo", back_populates="owner", cascade="all, delete-orphan")
+
